@@ -151,19 +151,8 @@ function verif_ganti2($uuid,$nomer,$otp_ganti2,$token,$gptoken)
 	$status=get_between($verif_ganti,'"message":"','"}');
 	return $status;
 	}
-$nomer2=($nomer);
-$kodevoucher="COBAINGOJEK";
 echo "MASUKAN NOMER REGIS = ";
-$nomer=trim(fgets(STDIN));
-$register=register($nomer);
-if($register['token']==!null){
-	echo "MASUKAN OTP REGIS = ";
-	$otp=trim(fgets(STDIN));
-	$verif = verif($otp,$register['token']);
-	if ($verif['token']==!null){
-		echo "SUKSES REGIS\n";
-		$claim=claim($verif['token'],$kodevoucher);
-		echo $claim."\n";
+$nomer2=trim(fgets(STDIN));
 		$ganti=ganti_nomor($nomer2,$register['email'],$register['nama'],$verif['token'],$verif['uuid']);
 		if($ganti==!null){
 			echo "Masukan OTP GANTI NOMER = ";
