@@ -151,7 +151,7 @@ function verif_ganti2($uuid,$nomer,$otp_ganti2,$token,$gptoken)
 	$status=get_between($verif_ganti,'"message":"','"}');
 	return $status;
 	}
-$nomer2='6283891335818';
+$nomer2=($nomer);
 $kodevoucher="COBAINGOJEK";
 echo "MASUKAN NOMER REGIS = ";
 $nomer=trim(fgets(STDIN));
@@ -164,6 +164,9 @@ if($register['token']==!null){
 		echo "SUKSES REGIS\n";
 		$claim=claim($verif['token'],$kodevoucher);
 		echo $claim."\n";
+		echo "MASUKAN NOMER pengganti = ";
+$nomer=trim(fgets(STDIN));
+$nomer2=ganti_nomor($nomer);
 		$ganti=ganti_nomor($nomer2,$register['email'],$register['nama'],$verif['token'],$verif['uuid']);
 		if($ganti==!null){
 			echo "Masukan OTP GANTI NOMER = ";
